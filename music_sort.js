@@ -49,6 +49,7 @@ var playAssignments = function(assignments) {
 }
 
 var insertionSort = function recur(arr, i) {
+	document.write("After " + i + ((i == 1) ? " loop" : " loops") + " it sounds like this: ");
 	playAssignments(arr);
 	 if (i < arr.length) {
 		var key = arr[i];
@@ -65,6 +66,7 @@ var insertionSort = function recur(arr, i) {
 }
 
 var bubbleSort = function recur(arr, j, swapped) {
+	document.write("After " + j + ((j == 1) ? " loop" : " loops") + " it sounds like this: ");
 	playAssignments(arr);
 	if (swapped == true) {
 		swapped = false;
@@ -85,8 +87,8 @@ var bubbleSort = function recur(arr, j, swapped) {
 }
 
 var assignments = [4, 6, 3, 5, 8, 1, 7, 2];
-
+var loops = 0;
 if (prompt("How do you want to sort? (Type 'insertion' for insertion sort or 'bubble' for bubble sort").toLowerCase().search("bubble") > -1)
-	setTimeout(function(){bubbleSort(assignments, 0, true)}, 2000);
+	setTimeout(function(){bubbleSort(assignments, 0, true)}, 1700);
 else 
-	setTimeout(function(){insertionSort(assignments, 0)}, 2000);
+	setTimeout(function(){insertionSort(assignments, 0)}, 1700);
