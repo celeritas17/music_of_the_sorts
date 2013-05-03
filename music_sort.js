@@ -67,7 +67,6 @@ var insertionSort = function recur(arr, i) {
 var bubbleSort = function recur(arr, j, swapped) {
 	playAssignments(arr);
 	if (swapped == true) {
-		//playAssignments(arr);
 		swapped = false;
 		var temp;
 		j++;
@@ -85,10 +84,9 @@ var bubbleSort = function recur(arr, j, swapped) {
 	}
 }
 
-//var assignments = [1, 2, 3, 4, 5, 6, 7, 8];
 var assignments = [4, 6, 3, 5, 8, 1, 7, 2];
 
 if (prompt("How do you want to sort? (Type 'insertion' for insertion sort or 'bubble' for bubble sort").toLowerCase().search("bubble") > -1)
-	setTimeout(function(){bubbleSort(assignments, 0)}, 2000);
+	setTimeout(function(){bubbleSort(assignments, 0, true)}, 2000);
 else 
-	setTimeout(function(){insertionSort(assignments, 0, true)}, 2000);
+	setTimeout(function(){insertionSort(assignments, 0)}, 2000);
