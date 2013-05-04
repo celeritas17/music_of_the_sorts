@@ -87,7 +87,6 @@ var bubbleSort = function recur(arr, j, swapped) {
 }
 
 var assignments = [4, 6, 3, 5, 8, 1, 7, 2];
-var loops = 0;
 if (prompt("How do you want to sort? (Type 'insertion' for insertion sort or 'bubble' for bubble sort").toLowerCase().search("bubble") > -1)
 	setTimeout(function(){bubbleSort(assignments, 0, true)}, 1700);
 else 
