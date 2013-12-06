@@ -48,8 +48,12 @@ var playAssignments = function(assignments) {
 	});	
 }
 
-var insertionSort = function recur(arr, i) {
+var countLoops = function(i){
 	document.write("After " + i + ((i == 1) ? " loop" : " loops") + " it sounds like this: ");
+}
+
+var insertionSort = function recur(arr, i) {
+	countLoops(i);
 	playAssignments(arr);
 	 if (i < arr.length) {
 		var key = arr[i];
@@ -66,9 +70,9 @@ var insertionSort = function recur(arr, i) {
 }
 
 var bubbleSort = function recur(arr, j, swapped) {
-	document.write("After " + j + ((j == 1) ? " loop" : " loops") + " it sounds like this: ");
+	countLoops(j);
 	playAssignments(arr);
-	if (swapped == true) {
+	if (swapped == true){
 		swapped = false;
 		var temp;
 		j++;
@@ -86,8 +90,31 @@ var bubbleSort = function recur(arr, j, swapped) {
 	}
 }
 
+var shellSort = function recur(arr, gap, i){
+	playAssignments(arr);
+	var j, temp;
+	
+
+		if (gap){
+			for (j = i - gap; j >= 0 && arr[j] > arr[j + gap]; j -= gap){
+				temp = arr[j];
+				arr[j] = arr[j + gap];
+				arr[j + gap] = temp;
+			}
+		}
+	gap = (i < arr.length) ? gap : gap/2;
+	i = (i < arr.length) ? i + 1 : gap;
+	setTimeout(function() {
+			recur(arr, gap, i);
+		}, 6250);
+}
+
 var assignments = [4, 6, 3, 5, 8, 1, 7, 2];
-if (prompt("How do you want to sort? (Type 'insertion' for insertion sort or 'bubble' for bubble sort").toLowerCase().search("bubble") > -1)
+var sort  = prompt("How do you want to sort? Type 'insertion' for insertion sort, 'shell' for shellsort, or 'bubble' for bubble sort");
+if (sort.toLowerCase().search("bubble") > -1)
 	setTimeout(function(){bubbleSort(assignments, 0, true)}, 1700);
-else 
+else if (sort.toLowerCase().search("insertion") > -1)
 	setTimeout(function(){insertionSort(assignments, 0)}, 1700);
+else 
+	setTimeout(function(){shellSort(assignments, assignments.length/2, 0);}, 1700);
+
