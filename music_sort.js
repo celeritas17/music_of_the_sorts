@@ -94,7 +94,6 @@ var shellSort = function recur(arr, gap, i){
 	playAssignments(arr);
 	var j, temp;
 	
-
 		if (gap){
 			for (j = i - gap; j >= 0 && arr[j] > arr[j + gap]; j -= gap){
 				temp = arr[j];
@@ -112,9 +111,9 @@ var shellSort = function recur(arr, gap, i){
 var assignments = [4, 6, 3, 5, 8, 1, 7, 2];
 var sort  = prompt("How do you want to sort? Type 'insertion' for insertion sort, 'shell' for shellsort, or 'bubble' for bubble sort");
 if (sort.toLowerCase().search("bubble") > -1)
-	setTimeout(function(){bubbleSort(assignments, 0, true)}, 1700);
+	setTimeout(function(){bubbleSort(assignments, 0, true);}, 1700);
 else if (sort.toLowerCase().search("insertion") > -1)
-	setTimeout(function(){insertionSort(assignments, 0)}, 1700);
+	setTimeout(function(){insertionSort(assignments, 0);}, 1700);
 else 
 	setTimeout(function(){shellSort(assignments, assignments.length/2, 0);}, 1700);
 
